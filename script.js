@@ -106,9 +106,9 @@ function spawnMusicNote() {
     setTimeout(() => note.remove(), 2000);
 }
 
-// ANIMASI: Efek Ledakan Hati (Confetti Hati) saat kartu dibalik
+// ANIMASI: Efek Ledakan Hati (Confetti Hati & Bunga) saat kartu dibalik
 function spawnHearts(x, y) {
-    const emojis = ['❤️', '💖', '✨', '💕'];
+    const emojis = ['❤️', '💖', '✨', '💕', '🌸', '🌷'];
     for (let i = 0; i < 6; i++) {
         const heart = document.createElement('div');
         heart.className = 'floating-heart';
@@ -118,6 +118,27 @@ function spawnHearts(x, y) {
         board.appendChild(heart);
         setTimeout(() => heart.remove(), 1500);
     }
+}
+
+// ANIMASI: Hujan Kelopak Bunga (Sakura)
+function startPetals() {
+    setInterval(() => {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.innerText = ['🌸', '💮', '🍃', '✨', '🌷'][Math.floor(Math.random() * 5)];
+        
+        // Mulai dari posisi X acak
+        petal.style.left = Math.random() * 100 + 'vw';
+        
+        // Kecepatan jatuh acak antara 5 hingga 10 detik
+        const duration = Math.random() * 5 + 5;
+        petal.style.animation = `fall ${duration}s linear forwards`;
+        
+        document.body.appendChild(petal);
+        
+        // Hapus elemen setelah selesai jatuh agar memori tidak penuh
+        setTimeout(() => petal.remove(), duration * 1000);
+    }, 400); // Munculkan kelopak baru setiap 400 milidetik
 }
 
 // Fungsi Pencetak Komponen Kartu Polaroid
@@ -225,6 +246,9 @@ function makeDraggable(el, options) {
                 isStarted = true;
                 instruction.style.opacity = '0';
                 setTimeout(scatterCards, 500); 
+                
+                // Mulai hujan bunga yang romantis
+                startPetals();
                 
                 // AUTOPLAY: Putar musik otomatis saat kartu pertama kali disentuh/dibuka
                 if (!isPlaying) {
