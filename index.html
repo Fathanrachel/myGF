@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Scrapbook Untuk Asya</title>
+    <!-- Font estetik tulisan tangan (Caveat) dan font bersih (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Musik Latar (Otomatis hidden karena di-control lewat tombol) -->
+    <audio id="bg-music" src="assets/audio/penjaga-hati.webm" loop></audio>
+
+    <!-- Area Papan Meja/Scrapbook -->
+    <div id="board" class="board">
+        <!-- Dekorasi Doodle Statis -->
+        <div class="decoration doodle-1">✨</div>
+        <div class="decoration doodle-2">☕</div>
+        <div class="decoration doodle-3">🪴</div>
+
+        <!-- Teks petunjuk awal -->
+        <div class="instruction" id="instruction">
+            <span style="font-size:32px;">👆</span><br>
+            Sentuh, geser bebas, & balik kartunya!
+        </div>
+        
+        <!-- Tombol Musik Imut -->
+        <button id="music-toggle" class="music-btn">🎵 Play BGM</button>
+    </div>
+
+    <!-- Script Logika -->
+    <script src="script.js"></script>
+</body>
+</html>
